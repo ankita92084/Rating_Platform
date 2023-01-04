@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Star Rating Platform</title>
+    
+    <style>
+        *{
+            background-color: black;
+        }
+        #namesbtn{
+            margin: 8% 0% 0% 35%;
+            padding: 20px;
+            font-size: 40px;
+            box-shadow: 3px 5px 30px 8px cyan;
+            border-radius: 20px;
+            font-weight: bold;
+            color: aliceblue;
+        }
+        .star{
+            font-size: 190px;
+            background-color: unset;
+            border: none;
+            color: cyan;
+        }
+        .star:hover{
+            cursor: pointer;
+            color: yellow;
+        }
+        .starrating{
+            user-select: none;
+            margin: 0% 0% 0% 27%;
+            /* text-shadow: 3px 3px 9px 5px ; */ 
+        }
+        .iconstar{
+            font-size: 30px;
+            margin: 0% 0% 0% 45%;
+        }
+        #nextbtn{
+            margin: 0% 0% 0% 55%;
+            padding: 10px;
+            font-size: 20px;
+            box-shadow: 1px 1px 1px 2px cyan;
+            border-radius: 20px;
+            font-weight: bold;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1 style="color: yellow;margin: 2% 0% 0% 45%;">5 Star </h1> -->
+    <div class="iconstar">
+    <button class="icon">&#11088;</button>
+    <button class="icon">&#11088;</button>
+    <button class="icon">&#11088;</button>
+    <button class="icon">&#11088;</button>
+    <button class="icon">&#11088;</button>
+</div>
+    <h1 style="color:yellow;font-size: 65px; margin: 0% 0% 0% 43%;">RATING  </h1>
+    <button id="namesbtn" type="button" onclick="userNames()">Click To Give  Rating For </button>
+
+    <p id="names" style="font-size: 80px;margin: 3% 0% 0% 44%;font-weight: bold;color: green;">
+</p>
+    <div class="starrating">
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+    </div>
+    <button id="nextbtn" type="button" onclick="userNames()",>Next Person For Rating</button>
+    <script>
+        const allStar=document.querySelectorAll(".star");
+        console.log(allStar);
+        allStar.forEach((star,i) => {
+            star.onclick = function(){
+                let current_star=i+1;
+                allStar.forEach((star,j)=>{
+                    // console.log(j+1);
+                    if (current_star>=j+1){
+                        star.innerHTML='&#9733';
+                    }
+                    else{
+                        star.innerHTML='&#9734'
+                    }
+                });
+            }  
+        });
+        function userNames() {
+            var down = document.getElementById('names');
+            const name=['Ankita','Anjali','Saumya','Arpita','Sarika','Pavithra'];
+            // var randomItem = name[Math.floor(Math.random()*name.length)];
+            // document.body.innerHTML = randomItem;    
+            down.innerHTML =name[Math.floor(Math.random()*name.length)];
+        }
+</script>
+</body>
+</html>
